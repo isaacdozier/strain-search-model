@@ -1,37 +1,31 @@
 <?php
-// get the q parameter from URL
-$farm_q = $_REQUEST["q"];
 
-$farm_hint = "";
+$tmp = "";
 
 include_once('lib/config.php');
-$farm_sql="SELECT lots.strain_id, lots.img, lots.id, lots.farm_id
+$f_sql="SELECT lots.strain_id, lots.img, lots.id, lots.harvest_date, lots.lot_number, farm_list.name
 			FROM lots
-			WHERE strain_id = '{$farm_q}'
+            left JOIN farm_list
+            ON lots.farm_id = farm_list.id
+			WHERE strain_id = '{$_REQUEST['q']}'
 			limit 4";
-$farm_result = mysqli_query($con,$farm_sql);
-$farm_a = mysqli_fetch_array($farm_result);
+$result = mysqli_query($con,$f_sql);
 
+foreach($result as $farm_strain){
+    if ($tmp === "") {
+        $tmp = '<div class="col-xs-12">
+    				<a href="#" onclick="retail_srch('.$farm_strain['strain_id'].','.$farm_strain['id'].')" class="thumbnail">
+    					'.'Lot# '.$farm_strain['lot_number'].' from '.$farm_strain['name'].' [harvested:'.$farm_strain['harvest_date'].']'.'
+    				</a>
+    			</div>';
+    } else {
+        $tmp .= '<div class="col-xs-12">
+   					 <a href="#" onclick="retail_srch('.$farm_strain['strain_id'].','.$farm_strain['id'].')" class="thumbnail">
+    					'.$farm_strain['lot_number'].' from '.$farm_strain['name'].'
+    				</a>
+ 			     </div>';
+    }
+}
 
-
-	foreach($farm_result as $strain){
-            if ($farm_hint === "") {
-                $farm_hint = '<div class="col-xs-6 col-md-3">
-                				<a href="#" onclick="retail_srch('.$strain['strain_id'].','.$strain['id'].')" class="thumbnail">
-                					<img src="img/'.$strain['img'].'" alt="...">
-                				</a>
-                			  </div>';
-            } else {
-                $farm_hint .= '<div class="col-xs-6 col-md-3">
-               					 <a href="#" onclick="retail_srch('.$strain['strain_id'].','.$strain['id'].')" class="thumbnail">
-                					<img src="img/'.$strain['img'].'" alt="...">
-                				</a>
-             			     </div>';
-            }
-	}
-
-
-
-// Output "no suggestion" if no hint was found or output correct values 
-echo $farm_hint === "" ? "<div class='alert alert-warning' role='alert'>no suggestion</div>" : $farm_hint;
+echo $tmp === "" ? "no suggestion" : $tmp;
 ?>
