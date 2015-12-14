@@ -1,0 +1,1 @@
+<div id="strain_txt"></div>
