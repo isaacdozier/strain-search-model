@@ -1,7 +1,18 @@
 
 <script>
 
-function strain_srch_2(str) {
+function strain_this(str) {
+var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("strain_txt").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "strain_this.php?q=" + str, true);
+        xmlhttp.send(); 
+}
+
+function strain_srch(str) {
     if (str.length == 0) { 
         document.getElementById("strain_txt").innerHTML = "";
         return;
@@ -32,10 +43,21 @@ function retail_srch(strn_id, lotid) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("retail-list-".concat(strn_id)).innerHTML = xmlhttp.responseText;
+                document.getElementById("retail-list-".concat(lotid)).innerHTML = xmlhttp.responseText;
             }
         }
         xmlhttp.open("GET", "retail_list.php?sq=" + strn_id + "&lq=" + lotid, true);
+        xmlhttp.send();      
+}
+
+function reviews(lot) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("reviews-".concat(lot)).innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "review_list.php?q=" + lot, true);
         xmlhttp.send();      
 }
 
