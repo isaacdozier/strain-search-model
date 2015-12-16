@@ -71,16 +71,6 @@ CREATE TABLE IF NOT EXISTS `farm_list` (
   `img` varchar(1000) NOT NULL DEFAULT 'no-image-available.gif'
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `farm_list`
---
-
-INSERT INTO `farm_list` (`id`, `name`, `img`) VALUES
-(1, 'Buddy Boy', 'no-image-available.gif'),
-(2, 'Ravens Keep', 'no-image-available.gif'),
-(3, 'Noble Farms', 'no-image-available.gif'),
-(4, 'Spinning Head', 'no-image-available.gif'),
-(5, 'Jackpot Seaweed', 'no-image-available.gif');
 
 -- --------------------------------------------------------
 
@@ -97,14 +87,6 @@ CREATE TABLE IF NOT EXISTS `lots` (
   `img` varchar(1000) NOT NULL DEFAULT 'no_available_image.gif'
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `lots`
---
-
-INSERT INTO `lots` (`id`, `farm_id`, `lot_number`, `strain_id`, `harvest_date`, `img`) VALUES
-(1, 3, '6033520740001513', 6, '2015-01-22', 'Blueberry-noble-farms-6033520740001513.jpg'),
-(2, 3, '6033520740002441', 6, '2015-02-12', 'no_available_image.gif'),
-(3, 5, '6033484270021881', 7, '2015-09-20', 'no_available_image.gif');
 
 -- --------------------------------------------------------
 
@@ -119,15 +101,6 @@ CREATE TABLE IF NOT EXISTS `retail_loc_list` (
   `active` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `retail_loc_list`
---
-
-INSERT INTO `retail_loc_list` (`id`, `name`, `website`, `active`) VALUES
-(1, 'Smuggler Brothers', '', 0),
-(2, 'Loving Farms', '', 0),
-(3, 'Cannerax', '', 0),
-(4, '221 Inc.', '', 0);
 
 -- --------------------------------------------------------
 
@@ -141,18 +114,6 @@ CREATE TABLE IF NOT EXISTS `strain_list` (
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `strain_list`
---
-
-INSERT INTO `strain_list` (`id`, `SHI_type`, `name`) VALUES
-(1, 3, 'Gods Gift'),
-(2, 0, 'Afgoo'),
-(3, 0, 'god bud'),
-(4, 2, 'Dutch Treat'),
-(5, 11, 'Dutch Queen'),
-(6, 13, 'Blueberry'),
-(7, 0, 'Purple Afghan X OG');
 
 -- --------------------------------------------------------
 
@@ -167,15 +128,6 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `retail_id` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `transactions`
---
-
-INSERT INTO `transactions` (`id`, `strain_id`, `lot_id`, `retail_id`) VALUES
-(4, 6, 1, 1),
-(7, 6, 2, 1),
-(8, 6, 2, 2),
-(9, 7, 3, 3);
 
 --
 -- Indexes for dumped tables
