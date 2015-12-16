@@ -25,14 +25,12 @@ if ($_REQUEST["q"] !== "" AND count($s_arr) !== 0) {
         if (stristr($search_q, substr($strain['name'], 0, $search_len))) {
             if ($tmp === "") {
                 $tmp = '<div class="panel panel-default">
-                                    <div class="panel-heading">'.$strain['name'].'</div>
-                                    <div class="panel-body">
-                                        <iframe style="display: none" onload="farm_srch('.$strain['id'].')"></iframe>
-                                        <div id="farmers-list-'.$strain['id'].'" class="row"></div>
-                                        <ul id="retail-list-'.$strain['id'].'" class="listgroup"></ul>
-                                    </div>
-
-                                </div>';
+                            <div class="panel-heading"><a href="#" onclick="strain_this('.$strain['id'].')">'.$strain['name'].'</a></div>
+                            <div class="panel-body">
+                                <iframe style="display: none" onload="farm_srch('.$strain['id'].')"></iframe>
+                                <div id="farmers-list-'.$strain['id'].'" class="row"></div>
+                            </div>
+                        </div>';
                 $search_id = $strain['id'];
             } else {
                 $tmp .= '<div class="panel panel-default">
@@ -41,8 +39,8 @@ if ($_REQUEST["q"] !== "" AND count($s_arr) !== 0) {
                                         <iframe style="display: none" onload="farm_srch('.$strain['id'].')"></iframe>
                                         <div id="farmers-list-'.$strain['id'].'" class="row"></div>
                                     </div>
-                                </div>
-                                <ul id="retail-list-'.$strain['id'].'" class="listgroup"></ul>';
+                                </div>';
+                                
                 $search_id = $strain['id'];
             }
         }
