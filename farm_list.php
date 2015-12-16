@@ -16,7 +16,7 @@ foreach($result as $farm_strain){
     if ($tmp === "") {
         $tmp = '<div class="col-xs-12 col-md-6 col-lg-3">
                     <div class="thumbnail">
-                        <img alt="test" src="img/'.$farm_strain['img'].'"/>
+                        <img alt="test" class="weed-img" src="img/'.$farm_strain['img'].'"/>
                         <div class="caption">
                             <p>harvested:'.$farm_strain['harvest_date'].'<br/>'
                             .'lot#'.$farm_strain['lot_number']
