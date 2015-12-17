@@ -9,7 +9,7 @@ var xmlhttp = new XMLHttpRequest();
                 document.getElementById("strain_txt").innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET", "strain_this.php?q=" + str, true);
+        xmlhttp.open("GET", "build/strain_this.php?q=" + str, true);
         xmlhttp.send(); 
 }
 
@@ -24,7 +24,7 @@ function strain_srch(str) {
                 document.getElementById("strain_txt").innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET", "strain_search.php?q=" + str, true);
+        xmlhttp.open("GET", "build/strain_search.php?q=" + str, true);
         xmlhttp.send();      
     }
 }
@@ -33,11 +33,22 @@ function farm_srch(strnid) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("farmers-list-".concat(strnid)).innerHTML = xmlhttp.responseText;
+                document.getElementById("f-list-".concat(strnid)).innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET", "farm_list.php?q=" + strnid, true);
+        xmlhttp.open("GET", "build/farm_list.php?q=" + strnid, true);
         xmlhttp.send();      
+}
+
+function lot_rate(str) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("rate-list-".concat(str)).innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "build/strain_rate.php?progress_q=" + str, true);
+        xmlhttp.send();
 }
 
 function retail_srch(strn_id, lotid) {
@@ -47,7 +58,7 @@ function retail_srch(strn_id, lotid) {
                 document.getElementById("retail-list-".concat(lotid)).innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET", "retail_list.php?sq=" + strn_id + "&lq=" + lotid, true);
+        xmlhttp.open("GET", "build/retail_list.php?sq=" + strn_id + "&lq=" + lotid, true);
         xmlhttp.send();      
 }
 
@@ -58,7 +69,7 @@ function reviews(lot) {
                 document.getElementById("reviews-".concat(lot)).innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET", "review_list.php?q=" + lot, true);
+        xmlhttp.open("GET", "build/review_list.php?q=" + lot, true);
         xmlhttp.send();      
 }
 

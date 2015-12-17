@@ -20,8 +20,6 @@ $sql = "SELECT strain_list.name, farm_list.name as farmer, lots.lot_number
 		$name_tmp = $rs['name']
 					.'-'.$rs['farmer']
 					.'-'.$rs['lot_number'];
-
-	echo $name_tmp;
 ?>
 </body>
 </html>
