@@ -1,11 +1,11 @@
-<?php include('inc_exec/header.php'); ?>
+<?php include('inc/header.php'); ?>
 <body>
 	<div class="container-fluid">
 		<div class="container">
-	    	<?php include('inc_exec/search-input.php'); ?>
+	    	<?php include('inc/search-input.php'); ?>
 	    
-	   		<?php include('inc_exec/content.php'); ?>
+	   		<?php include('inc/content.php'); ?>
 	    </div>
 	</div>
 </body>
-<?php include('inc_exec/foot.php'); ?>
+<?php include('inc/foot.php'); ?>

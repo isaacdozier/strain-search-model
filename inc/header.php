@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Best Weed Search</title>
+    <title>Strain Search Model</title>
 
     <!-- Bootstrap -->
     <link href="http://localhost/GitHub/Strain-search-model/lib/css/custom.css" rel="stylesheet">
