@@ -1,6 +1,24 @@
 
 <script>
 
+$( function(){
+    var x = document.getElementById("search_txt").value;
+    if (x.length == 0) { 
+        document.getElementById("strain_txt").innerHTML = "";
+        return;
+    }else{
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("strain_txt").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "build/strain_search.php?q=" + x, true);
+        xmlhttp.send(); 
+    }
+    console.log(x);
+});
+
 //SEARCH functions
 function strain_this(str) {
 var xmlhttp = new XMLHttpRequest();
@@ -11,6 +29,24 @@ var xmlhttp = new XMLHttpRequest();
         }
         xmlhttp.open("GET", "build/strain_this.php?q=" + str, true);
         xmlhttp.send(); 
+}
+
+function strain_srch_hint(str) {
+    if (str.length == 0) { 
+        document.getElementById("strain_txt").innerHTML = "";
+        document.getElementById("strain_txt_hint").setAttribute("style", "display:none");
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("strain_txt_hint").innerHTML = xmlhttp.responseText;
+                document.getElementById("strain_txt_hint").setAttribute("style", "display:block");
+            }
+        }
+        xmlhttp.open("GET", "build/strain_hint.php?q=" + str, true);
+        xmlhttp.send();      
+    }
 }
 
 function strain_srch(str) {
@@ -28,6 +64,8 @@ function strain_srch(str) {
         xmlhttp.send();      
     }
 }
+
+
 
 function farm_srch(strnid) {
         var xmlhttp = new XMLHttpRequest();
@@ -47,7 +85,7 @@ function lot_rate(str) {
                 document.getElementById("rate-list-".concat(str)).innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET", "build/strain_rate.php?progress_q=" + str, true);
+        xmlhttp.open("GET", "build/strain_rate.php?q=" + str, true);
         xmlhttp.send();
 }
 

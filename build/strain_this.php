@@ -30,9 +30,8 @@ if ($_REQUEST["q"] !== "" AND count(mysqli_fetch_array($r)) !== 0) {
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-8">
-                                    <h4>Reviews</h4>
-                                        <iframe style="display: none" onload="reviews('.$s['lot_id'].')"></iframe>
-                                        <div id="reviews-'.$s['lot_id'].'"></div>
+                                    <iframe style="display: none" onload="reviews('.$s['lot_id'].')"></iframe>
+                                    <div id="reviews-'.$s['lot_id'].'"></div>
                                 </div>
                             </div>
                             <div class="row">
@@ -51,9 +50,8 @@ if ($_REQUEST["q"] !== "" AND count(mysqli_fetch_array($r)) !== 0) {
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-8">
-                                    <h4>Reviews</h4>
-                                        <iframe style="display: none" onload="reviews('.$s['lot_id'].')"></iframe>
-                                        <div id="reviews-'.$s['lot_id'].'"></div>
+                                    <iframe style="display: none" onload="reviews('.$s['lot_id'].')"></iframe>
+                                    <div id="reviews-'.$s['lot_id'].'"></div>
                                 </div>
                             </div>
                             <div class="row">

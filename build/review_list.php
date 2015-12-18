@@ -23,5 +23,5 @@ foreach($r as $s){
     }
 }
 
-echo $tmp === "" ? "Sorry, we currently have no reviews." : $tmp;
+echo $tmp === "" ? "Sorry, we currently have no reviews." : "Review:".$tmp;
 ?>
