@@ -22,21 +22,19 @@ $r = mysqli_query($con,$sql);
 
 foreach($r as $s){
     if ($tmp === "") {
-        $tmp = '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    <div id="rate-list-'.$s['id'].'" class="progress"></div>
-                    <iframe style="display: none" onload="lot_rate('.$s['id'].')"></iframe>
-                    <a href="#" onclick="retail_srch('.$s['strain_id'].','.$s['id'].')">
-                        <img alt="'.$s['img_alt'].'" class="img-responsive img-rounded" src="img/'.$s['img'].'"/>
-                    </a>
-                    <span id="retail-list-'.$s['id'].'" ></span>                       
-                </div>';
+        $tmp = '<div id="rate-list-'.$s['id'].'" class="progress"></div>
+                <iframe style="display: none" onload="lot_rate('.$s['id'].')"></iframe>
+                <a href="#" onclick="retail_srch('.$s['strain_id'].','.$s['id'].')">
+                    <img alt="'.$s['img_alt'].'" class="img-responsive img-rounded" src="img/'.$s['img'].'"/>
+                </a>
+                <span id="retail-list-'.$s['id'].'" ></span>';
     } else {
-        $tmp .= '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    <a href="#" onclick="retail_srch('.$s['strain_id'].','.$s['id'].')">
-                        <img alt="'.$s['img_alt'].'" class="img-responsive img-rounded" src="img/'.$s['img'].'"/>
-                    </a>
-                    <span id="retail-list-'.$s['id'].'" ></span>                       
-                </div>';
+        $tmp .= '<div id="rate-list-'.$s['id'].'" class="progress"></div>
+                <iframe style="display: none" onload="lot_rate('.$s['id'].')"></iframe>
+                <a href="#" onclick="retail_srch('.$s['strain_id'].','.$s['id'].')">
+                    <img alt="'.$s['img_alt'].'" class="img-responsive img-rounded" src="img/'.$s['img'].'"/>
+                </a>
+                <span id="retail-list-'.$s['id'].'" ></span>';
     }
 }
 

@@ -1,0 +1,22 @@
+<div class="page-header">
+    <div class="input-group">
+    	<form action="<?=$_SERVER['PHP_SELF']?>" 
+    		  method="get" 
+    		  class="form-inline" 
+    		  role="form">
+  			<div class="form-group">
+        		<input type="text" 
+        			   id="search_txt" 
+        			   value="<?=$_REQUEST['q']?>" 
+        			   name="q" class="form-control" 
+        			   placeholder="Search for strain..." 
+        			   onkeyup="strain_srch_hint(this.value)">
+        			   
+    		</div>
+    		<button type="submit" class="btn btn-default">Submit</button>
+    	</form>
+    </div>
+    <div class="container">
+	    <ul id="strain_txt_hint" class="list-group"></ul>
+	</div>
+</div>

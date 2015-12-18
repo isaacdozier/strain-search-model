@@ -1,15 +1,15 @@
 <!-- IN DEV -->
 <!-- IN DEV -->
-<?php include('inc/header.php'); ?>
+<?php include('inc/header.html'); ?>
 <body>
 	<div class="container-fluid">
 		<div class="container">
-	    	<?php include('inc/search-input.php'); ?>
-	   		<?php include('inc/content.php'); ?>
+	    	<?php include('inc/search-input.html'); ?>
+	   		<?php include('inc/content.html'); ?>
 	    </div>
 	</div>
 </body>
-<?php include('inc/foot.php'); ?>
+<?php include('inc/foot.html'); ?>
 <!-- IN DEV -->
 <!-- IN DEV -->
 <!-- IN DEV -->
