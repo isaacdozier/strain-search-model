@@ -1,8 +1,8 @@
-<?php include('inc/header.html'); ?>
+<?php include('inc/head.html'); ?>
 <body>
 	<div class="container-fluid">
 		<div class="container">
-	    	<?php include('inc/search-input.html'); ?>
+	    	<?php include('inc/header.html'); ?>
 	    
 	   		<?php include('inc/content.html'); ?>
 	    </div>

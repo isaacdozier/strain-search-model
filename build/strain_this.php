@@ -30,13 +30,11 @@ if ($_REQUEST["q"] !== "" AND count(mysqli_fetch_array($r)) !== 0) {
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-8">
+                                    <h3>Lot# '.$s['lot_number'].'</h3>
                                     <iframe style="display: none" onload="reviews('.$s['lot_id'].')"></iframe>
-                                    <div id="reviews-'.$s['lot_id'].'"></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-md-8">
-                                    Lot# '.$s['lot_number'].'
+                                        <div id="reviews-'.$s['lot_id'].'"></div>
+                                    <a href="#" onclick="retail_srch('.$s['id'].','.$s['lot_id'].')">Find it</a>
+                                        <div id="retail-list-'.$s['lot_id'].'" ></div>
                                 </div>
                             </div>
                         </div>';
@@ -50,13 +48,11 @@ if ($_REQUEST["q"] !== "" AND count(mysqli_fetch_array($r)) !== 0) {
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-8">
+                                    <h3>Lot# '.$s['lot_number'].'</h3>
                                     <iframe style="display: none" onload="reviews('.$s['lot_id'].')"></iframe>
-                                    <div id="reviews-'.$s['lot_id'].'"></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-md-8">
-                                    Lot# '.$s['lot_number'].'
+                                        <div id="reviews-'.$s['lot_id'].'"></div>
+                                    <a href="#" onclick="retail_srch('.$s['id'].','.$s['lot_id'].')">Find it</a>
+                                        <div id="retail-list-'.$s['lot_id'].'" ></div>
                                 </div>
                             </div>
                         </div>';

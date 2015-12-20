@@ -3,7 +3,7 @@
 $n_tmp = '';
 $id_tmp = '';
 
-include_once('../lib/config.php');
+include_once('../../../lib/config.php');
 $s_sql="SELECT strain_list.name, strain_list.id
             FROM strain_list
             WHERE strain_list.name LIKE '".$_REQUEST["q"]."%'";

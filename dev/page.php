@@ -1,6 +1,6 @@
 <!-- IN DEV -->
 <!-- IN DEV -->
-<?php include('inc/header.html'); ?>
+<?php include('inc/head.html'); ?>
 <body>
 	<div class="container-fluid">
 		<div class="container">
