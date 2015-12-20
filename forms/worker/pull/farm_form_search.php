@@ -3,7 +3,7 @@
 $n_tmp = '';
 $id_tmp = '';
 
-include_once('../lib/config.php');
+include_once('../../../lib/config.php');
 $s_sql="SELECT farm_list.name, farm_list.id
             FROM farm_list
             WHERE farm_list.name LIKE '".$_REQUEST["q"]."%'";
