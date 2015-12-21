@@ -1,0 +1,17 @@
+<h1><?=$s['name']?></h1>
+<div class="well">
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <div class=" thumbnail">
+                <img src="img/<?=$s['img']?>" alt="<?=$s['name']?>"/>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-8">
+            <h3>Lot# <?=$s['lot_number']?></h3>
+            <iframe style="display: none" onload="reviews(<?=$s['lot_id']?>)"></iframe>
+                <div id="reviews-<?=$s['lot_id']?>"></div>
+            <a href="#" onclick="retail_srch(<?=$s['id']?>,<?=$s['lot_id']?>)">Find it</a>
+                <div id="retail-list-<?=$s['lot_id']?>" ></div>
+        </div>
+    </div>
+</div>

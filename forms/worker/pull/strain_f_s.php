@@ -26,5 +26,5 @@ if ($_REQUEST["q"] !== "" AND count($s_arr) !== 0) {
 }
 
 // Output
-echo $n_tmp === "" ? "no strain found" : $n_tmp.'<input class="form-control" name="strain_id" type="hidden" value="'.$id_tmp.'"/>';
+echo $n_tmp === "" ? $_REQUEST["q"] : $n_tmp.'<input class="form-control" name="strain_id" type="hidden" value="'.$id_tmp.'"/>';
 ?>

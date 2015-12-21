@@ -1,0 +1,25 @@
+<div class="container">
+	<h2>Would you like to add an image?</h2>
+	<form 
+		action="<?=$_SERVER['PHP_SELF']?>" 
+		method="POST" 
+		enctype="multipart/form-data">
+
+    	<input 
+    		type="hidden"
+    		name="<?=$p_to?>lot_id" 
+    		value="<?=
+    				isset($_REQUEST[$p_to.'lot_id'])
+    				?$_REQUEST[$p_to.'lot_id']
+    				:$con->insert_id
+    				?>"/>
+    	<input 
+    		type="file" 
+    		name="<?=$p_to?>image" 
+    		size="32" 
+    		value=""/>
+
+    	<input type="submit"/>
+	</form>
+</div>	
+				
