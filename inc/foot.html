@@ -1,42 +1,62 @@
 
-<script>
-document.getElementById("search").addEventListener("submit", search);
+<script type="text/javascript">
 
-function search() {
-var x = document.getElementById("search_txt").value;
-var xmlhttp = new XMLHttpRequest();
+
+
+$(document).ready(function(){
+    var x = document.getElementById("q_txt").value;
+    if (x.length == 0) { 
+        document.getElementById("content").innerHTML = "";
+        return;
+    }else{
+        var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("content").innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET", "build/s_chain.php?q=" + x, true);
+        xmlhttp.open("GET", "build/s_chain.php".concat("?q="+x+"&b=grid"), true);
         xmlhttp.send(); 
+    }
+    console.log(x);
+});
+
+function submit_img() {
+    var z = document.getElementById("img_data").value;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("content").innerHTML = xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("POST", 
+          "forms/f_chain.php?img_data="+z, true);
+    xmlhttp.send(); 
 }
 
-function new_strain(x) {
-var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("content").innerHTML = xmlhttp.responseText;
-            }
+function f(b,f,t,v) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("form_content").innerHTML = xmlhttp.responseText;
         }
-        xmlhttp.open("GET", "forms/f_chain.php?ns="+x, true);
-        xmlhttp.send(); 
+    }
+    xmlhttp.open("GET", 'forms/f_chain.php?b='+b+'&f='+f+'&t='+t+'&v='+v, true);
+    xmlhttp.send(); 
 }
 
 
 
 //SEARCH functions
 function strain_this(str) {
-var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("scontent").innerHTML = xmlhttp.responseText;
-            }
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("content").innerHTML = xmlhttp.responseText;
         }
-        xmlhttp.open("GET", "build/s_view.php?q=" + str, true);
-        xmlhttp.send(); 
+    }
+    xmlhttp.open("GET", "build/s_view.php?q=" + str, true);
+    xmlhttp.send(); 
 }
 
 function strain_srch_hint(str) {
@@ -57,41 +77,41 @@ function strain_srch_hint(str) {
 }
 
 function farm_srch(strnid) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("f-list-".concat(strnid)).innerHTML = xmlhttp.responseText;
-            }
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("f-list-".concat(strnid)).innerHTML = xmlhttp.responseText;
         }
-        xmlhttp.open("GET", "build/farm_list.php?q=" + strnid, true);
-        xmlhttp.send();      
+    }
+    xmlhttp.open("GET", "build/farm_list.php?q=" + strnid, true);
+    xmlhttp.send();      
 }
 
 function retail_srch(strn_id, lotid) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("retail-list-".concat(lotid)).innerHTML = xmlhttp.responseText;
-            }
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("retail-list-".concat(lotid)).innerHTML = xmlhttp.responseText;
         }
-        xmlhttp.open("GET", "build/retail_list.php?sq=" + strn_id + "&lq=" + lotid, true);
-        xmlhttp.send();      
+    }
+    xmlhttp.open("GET", "build/retail_list.php?sq=" + strn_id + "&lq=" + lotid, true);
+    xmlhttp.send();      
 }
 
 function reviews(lot) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("reviews-".concat(lot)).innerHTML = xmlhttp.responseText;
-            }
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("reviews-".concat(lot)).innerHTML = xmlhttp.responseText;
         }
-        xmlhttp.open("GET", "build/review_list.php?q=" + lot, true);
-        xmlhttp.send();      
+    }
+    xmlhttp.open("GET", "build/review_list.php?q=" + lot, true);
+    xmlhttp.send();      
 }
 
 //FORM funtions
 //find & fill forms with searched values 
-function _s_f(v,x) {
+function _f_s(v,x) {
     if (v.length == 0) { 
         document.getElementById(x+"_form_txt").innerHTML = "";
         return;

@@ -1,9 +1,9 @@
 <?php
 
-$f_ = $_FILES[$p_to.'image'];
-$l_ = $_REQUEST[$p_to.'lot_id'];
-
-require_once('lib/class.upload.php/src/class.upload.php');
+$f_ = $_FILES['image'];
+$l_ = $_REQUEST['lot_id'];
+require('../../../lib/config.php');
+require_once('../../../lib/class.upload.php/src/class.upload.php');
 
 $foo = new Upload($f_);
 
@@ -45,7 +45,7 @@ if ($foo->uploaded) {
 	$foo->image_convert = 'gif';
 	$foo->image_x = 710;
 	$foo->image_ratio_y = true;
-	$foo->Process('../img/');
+	$foo->Process('../../../img/');
 
 	//SET ERRORS
 	$errors= array();
@@ -65,9 +65,8 @@ if ($foo->uploaded) {
 
 			#insert data + clear tmp file
 			if($con->query($sql)) 
-		      {echo "Success";
-			   $foo->Clean();
-			   header('Location: '.$_SERVER['PHP_SELF']);}
+		      {$foo->Clean();
+			   header('Location: '.$_SERVER['DOCUMENT_ROOT']);}
 
 	}else{//ERRORS
 	     echo$foo->error;

@@ -6,9 +6,6 @@
 
 	    	<?php include('inc/header.html'); ?>
 	    	<?php include('inc/query.html'); ?>
-	    	
-	    	<?php include('forms/f_chain.php'); ?>
-
 	   		<?php include('inc/content.html'); ?>
 
 	    </div>

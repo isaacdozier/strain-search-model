@@ -1,9 +1,12 @@
 <div class="page-bg col-xs-12 col-sm-6 col-md-4 col-lg-3">
-    <div class="well">
-        <a href="#" onclick="strain_this(<?=$s['strain_id']?>)">
-            <?=$s['strain_name']?>
-        </a>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <a href="#" onclick="strain_this(<?=$s['lot_id']?>)">
+              <?=$s['strain_name']?>
+          </a>
+        </div>
         
+        <div class="panel-body">
             <div class="progress">
               <div class="progress-bar 
                           progress-bar-success" 
@@ -25,8 +28,12 @@
               </div>
             </div>
          
-        <a href="?ni_lot_id=<?=$s['lot_id']?>">
-            <img alt="<?=$s['img_alt']?>" class="img-responsive img-rounded" src="img/<?=$s['img']?>"/>
-        </a>
+            <a href="#" 
+               onclick="f('bricks/','img','f',<?=$s['lot_id']?>)"
+               data-toggle="modal" 
+               data-target="#form_modal">
+                <img alt="<?=$s['img_alt']?>" class="img-responsive img-rounded" src="img/<?=$s['img']?>"/>
+            </a>
+        </div>
     </div>
 </div>

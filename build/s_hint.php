@@ -1,6 +1,6 @@
 <?php
 
-$s_to = 'h';
+$s_to = 'hint';
 
 $sql="SELECT name
         FROM strain_list

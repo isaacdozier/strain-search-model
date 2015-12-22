@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1><?=$s['strain_name']?></h1>
+        <h3>Lot# <?=$s['farm_name']?></h3>
+        <h4>Lot# <?=$s['lot_number']?></h4>
+        <div class=" thumbnail">
+            <img src="img/<?=$s['img']?>" alt="<?=$s['name']?>"/>
+        </div>
+
+        
+        <iframe style="display: none" onload="reviews(<?=$s['lot_id']?>)"></iframe>
+        <div id="reviews-<?=$s['lot_id']?>"></div>
+
+        <a href="#" onclick="retail_srch(<?=$s['id']?>,<?=$s['lot_id']?>)">Find it</a>
+        <div id="retail-list-<?=$s['lot_id']?>" ></div>
+    </div>
+</div>

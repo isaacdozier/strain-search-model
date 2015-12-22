@@ -1,6 +1,6 @@
 <?php
 
-$s_to = 'g';
+$s_to = 'grid';
 
 $sql="SELECT 
        lots.strain_id, 
