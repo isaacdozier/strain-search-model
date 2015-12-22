@@ -1,0 +1,33 @@
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Would you like to add an image?</h4>
+  </div>
+  <div class="modal-body">
+	<form method="POST"
+		  action="forms/worker/push/file_i.php"
+		  enctype="multipart/form-data">
+
+    	<input type="hidden"
+    		name="lot_id"
+    		value="<?=isset($_REQUEST['v'])
+    				?$_REQUEST['v']
+    				:$con->insert_id?>"/>
+    	<input type="file" 
+    		name="image"
+    		size="32" 
+    		value=""/>
+    		<input type="submit" value="Submit"/>
+	</form>
+
+	
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
+</div>
+</div>
+				

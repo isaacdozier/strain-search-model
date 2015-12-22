@@ -1,22 +1,55 @@
 <div class="page-header">
-    <div class="input-group">
+    <div class="content input-group">
     	<form action="<?=$_SERVER['PHP_SELF']?>" 
-    		  method="get" 
     		  autocomplete="off"
     		  class="form-inline" 
     		  role="form">
   			<div class="form-group">
         		<input type="text" 
-        			   id="search_txt" 
-        			   value="<?=isset($_REQUEST['q'])?$_REQUEST['q']:""?>" 
-        			   name="q" class="form-control" 
+        			   name="q"
+        			   class="form-control" 
         			   placeholder="Search for strain..." 
         			   onkeyup="strain_srch_hint(this.value)">
+        		
+        		<input id="q_txt"
+        			   type="hidden" 
+        			   value="<?=isset($_REQUEST['q'])?$_REQUEST['q']:''?>"/>
     		</div>
-    		<button type="submit" class="btn btn-default">Search</button>
+
+    		<input type="submit"
+    				value="search"
+    			    class="btn btn-default"/>
     	</form>
+
+    	<a href="#"
+			onclick="f('bricks/','ns','f')" 
+			data-toggle="modal" 
+			data-target="#form_modal">
+    		New Strain</a>
     </div>
-    <div class="container">
+
+    <div class="content">
 	    <ul id="strain_txt_hint" class="list-group"></ul>
 	</div>
+
+	<div class="content">
+		<b>Search query for:</b>
+		<a href="<?=$_SERVER['REQUEST_URI']?>">
+		<?=isset($_REQUEST['q'])
+		   ?$_REQUEST['q']
+		   :""?>
+		</a>
+	</div>
+
+	<div class="content">
+		<!-- Form Modal -->
+		<div id="form_modal" 
+		     class="modal fade" 
+			 role="dialog">
+
+			 <div id="form_content" class="row"></div>
+		</div>
+	</div>
+
+	
 </div>

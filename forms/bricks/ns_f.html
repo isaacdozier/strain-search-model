@@ -1,0 +1,61 @@
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Insert New Strain Data</h4>
+  </div>
+  <div class="modal-body">
+    <form 
+	autocomplete="off"
+	action="forms/worker/push/lot_i.php"
+	method="post">
+	
+
+		Strain<input
+		type="text" 
+		class="form-control" 
+		onkeyup="_f_s(this.value, 'strain')"/>
+		<div id="strain_form_txt" ></div>
+
+			<br/>
+
+		Farm<input 
+		type="text"
+		class="form-control" 
+		onkeyup="_f_s(this.value, 'farm')"/>
+		<div id="farm_form_txt"></div>
+
+			<br/>
+
+		Lot#<input 
+		type="text" 
+		class="form-control"
+		onkeyup="_f_s(this.value, 'lot')"
+		name="lot_number"/>
+		<div id="lot_form_txt"></div>
+			<br/>
+
+		Harvest Date<input 
+		type="date" 
+		class="form-control" 
+		name="harvest_date"/>
+			
+			<br/>
+			
+		<input  
+		class="form-control" 
+		type="submit" 
+		value="Submit" />	
+		
+		
+	</form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
+</div>
+</div>
+
+
