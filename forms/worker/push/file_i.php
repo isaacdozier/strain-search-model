@@ -43,7 +43,7 @@ if ($foo->uploaded) {
 	$foo->file_new_name_body = $n_tmp;
 	$foo->image_resize = true;
 	$foo->image_convert = 'gif';
-	$foo->image_x = 710;
+	$foo->image_x = 1000;
 	$foo->image_ratio_y = true;
 	$foo->Process('../../../img/');
 

@@ -1,7 +1,8 @@
 <?php
 
 if(isset($_GET['b'])){
-	include('s_'.$_GET['b'].'.php');
+	include_once('s_'.$_GET['b'].'.php');
+	
 }
 
 ?>

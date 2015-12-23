@@ -16,7 +16,7 @@ require('../../../lib/config.php');
 
 	if ($con->query($sql)) {
 		echo 'succes';
-		header('Location: '.$_SERVER['DOCUMENT_ROOT']);
+		header('Location: '.ROOT);
 	} else {
 		exit();
 	}
