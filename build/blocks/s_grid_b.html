@@ -24,16 +24,12 @@
                         aria-valuenow="40"
                         aria-valuemin="0" 
                         aria-valuemax="100" 
-                        style="width:<?=abs($s['d_rate']/2)?>%">
+                        style="width:<?=$s['d_rate']?>%">
               </div>
             </div>
-         
-            <a href="#" 
-               onclick="f('bricks/','img','f',<?=$s['lot_id']?>)"
-               data-toggle="modal" 
-               data-target="#form_modal">
-                <img alt="<?=$s['img_alt']?>" class="img-responsive img-rounded" src="img/<?=$s['img']?>"/>
-            </a>
+
+            <img alt="<?=$s['img_alt']?>" class="img-responsive img-rounded" src="img/<?=$s['img']?>"/>
+            
         </div>
     </div>
 </div>
