@@ -1,22 +1,17 @@
 <?php include('inc/head.html'); ?>
 
 <body>
-	<div class="container-fluid">
-		<div class="container">
-
-			<!-- Admin options -->
-			<?php include('admin/panel.html'); ?>
-			<?php include('admin/gen_opt.html'); ?>
-
-			<!-- (admin/lot_opt) located at build/blocks/s_view.php -->
-			<?php //include('admin/lot_opt.html'); ?>
+	<div class="container-fluid container">
 
 			<!-- inc blocks -->
 	    	<?php include('inc/header.html'); ?>
-	    	<?php include('inc/query.html'); ?>
-	   		<?php include('inc/content.html'); ?>
+	    		
+	    		<!-- user input/output -->
+	    		<?php include('inc/query.html'); ?>
 
-	    </div>
+	   		<?php include('inc/content.html'); ?>
+	   		<?php include('inc/footer.html'); ?>
+
 	</div>
 </body>
 

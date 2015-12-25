@@ -15,8 +15,7 @@ require('../../../lib/config.php');
 			VALUES (NULL,  '{$strain_id}', '{$lot}', '{$farm_id}', '{$harvest_date}')";
 
 	if ($con->query($sql)) {
-		echo 'succes';
-		header('Location: '.ROOT);
+		header('Location: '.htmlspecialchars($_SERVER['PHP_SELF']));
 	} else {
 		exit();
 	}

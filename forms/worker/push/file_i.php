@@ -2,6 +2,8 @@
 
 $f_ = $_FILES['image'];
 $l_ = $_REQUEST['lot_id'];
+
+require('../../../lib/common.php');
 require('../../../lib/config.php');
 require_once('../../../lib/class.upload.php/src/class.upload.php');
 
@@ -51,27 +53,26 @@ if ($foo->uploaded) {
 	$errors= array();
 	//--
 	if($file_size > 2097152)
-	  {$errors[]='File size must be under 2 MB';}	
+	  {$errors[]='File size must be under 2 MB';}	 
 
-	if($foo->processed 
-	   AND 
-	   empty($errors)==true) 
-	  {echo 'image renamed, resized x=100<br/>';
+}
+else{//ERRORS
+   echo$foo->error;}
+
+if($foo->processed AND empty($errors)==true) {
+	echo 'image renamed, resized<br/>';
 
 	# update img sql
-	$sql = "UPDATE lots
+	$update_sql = "UPDATE lots
 			SET img = '{$file_name}'
 			WHERE id = {$l_}";
 
-			#insert data + clear tmp file
-			if($con->query($sql)) 
-		      {$foo->Clean();
-			   header('Location: '.$_SERVER['DOCUMENT_ROOT']);}
-
-	}else{//ERRORS
-	     echo$foo->error;
-	     print_r($errors);} 
+		#insert data + clear tmp file
+		if($con->query($update_sql)) 
+	      {$foo->Clean();
+		   header('Location: '.__ROOT__);}
 
 }else{//ERRORS
-   echo$foo->error;}
+ echo$foo->error;
+ print_r($errors);}
 ?>
