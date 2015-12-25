@@ -1,7 +1,6 @@
 <?php
 
-define('ROOT', __DIR__ .'/');
-
+// Declare connection
 $con = mysqli_connect("localhost","root","","strain_lib");
 
 // Check connection

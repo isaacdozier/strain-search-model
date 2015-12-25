@@ -1,51 +1,66 @@
-<?php include_once('../admin/lot_opt.html');?>
-
-
 <div class="container">
+    <!-- RATE BAR -->
+    <?php include('rate_bar.html');?>
+
+    <!-- STRAIN INFO -->
     <h1><?=$s['strain_name']?></h1>
-    <h2><small>from <?=$s['farm_name']?></small></h2>
+    <h3>
+     <small>
+      Lot# <?=$s['lot_number']?><br/>
+      from <?=$s['farm_name']?>
+     </small>
+    </h3>
 
-    <img class="img-responsive" 
-         src="img/<?=$s['img']?>" 
-         alt="<?=$s['name']?>"/>
-
-    <h3><small>Lot# <?=$s['lot_number']?></small></h3>
-
+    <!-- HIDDEN DATA/LOADERS -->
+    <input type="hidden" id="lot_id" value="<?=$s['lot_id']?>"/>
     <iframe style="display: none" 
-            onload="reviews('review',<?=$s['lot_id']?>)"></iframe>
+            onload="reviews('review',<?=$s['lot_id']?>)">
+            </iframe>
+    
+    <!-- REVIEWS -->      
+    <b>Reviews:</b></br>
     <span id="reviews-<?=$s['lot_id']?>"></span>
 
-    <a class="btn btn-primary btn-lg" 
-       href="#" 
+
+    <!-- IMAGE -->
+    <img class="img-responsive thumbnail" 
+         src="img/<?=$s['img']?>" 
+         alt="<?=$s['img_alt']?>"/>
+
+    <!-- RETAIL SEARCH LINK -->
+    <a href="#" 
        role="button"
        data-toggle="modal" 
        data-target="#retail_modal" 
        onclick="retail_srch('retail',<?=$s['lot_id']?>)">
-    Find it
-    </a>
-</div>
+       <span class="glyphicon glyphicon-search"></span>
+       Find It
+       </a>
 
+    <!-- RETAIL SEARCH POP-UP -->
+    <div id="retail_modal" 
+         class="modal fade" 
+         role="dialog">
 
-<!-- Retail Modal -->
-<div id="retail_modal" 
-     class="modal fade" 
-     role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-     <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Find it, Buy it</h4>
-            </div>
-            <div class="modal-body">
-                <ul class="list-group"
-                    id="retail-list-<?=$s['lot_id']?>">
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <h4 class="modal-title">
+                        <span class="glyphicon glyphicon-barcode">
+                        </span>
+                        Find it, Buy it</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group"
+                        id="retail-list-<?=$s['lot_id']?>">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-
 </div>

@@ -17,5 +17,9 @@ $tmp .= ob_get_contents();
 
 ob_end_clean();
 
-echo $tmp ? $tmp : 'Sorry, No Results.';
+echo $tmp ? $tmp : '<div class="container">
+						<span class="glyphicon glyphicon-exclamation-sign">
+						</span> 
+						Sorry, No Results.
+					</div>';
 ?>

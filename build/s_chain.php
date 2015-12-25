@@ -1,8 +1,4 @@
 <?php
-
-if(isset($_GET['b'])){
-	include_once('s_'.$_GET['b'].'.php');
-	
-}
-
+if(isset($_REQUEST['b']))
+	require_once('s_'.$_REQUEST['b'].'.php');
 ?>
