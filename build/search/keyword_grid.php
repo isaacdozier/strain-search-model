@@ -16,7 +16,7 @@ $sql="SELECT
         ON lots.farm_id = farm_list.id
        left JOIN strain_list
         ON lots.strain_id = strain_list.id
-      WHERE strain_list.name like '{$_REQUEST['q']}%'
+      WHERE strain_list.name like '%{$_REQUEST['q']}%'
       ORDER BY lots.rate desc
       LIMIT 12";
       ?>

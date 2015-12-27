@@ -1,0 +1,91 @@
+<div class="container">
+     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <!-- RATE BAR -->
+        <?php include('rate_bar.html');?>
+
+        <!-- STRAIN INFO -->
+        <h1><?=$s['strain_name']?></h1>
+        <h3>
+            <small>
+                from <?=$s['farm_name']?>
+             </small>
+         </h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <!-- IMAGE -->
+        <img class="img-responsive" 
+             src="img/<?=$s['img']?>" 
+             alt="<?=$s['img_alt']?>"/>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <!-- STRAIN INFO 2 -->
+        <h4>
+          Lot# <?=$s['lot_number']?>
+        </h4>
+
+        <!-- HIDDEN DATA/LOADERS -->
+        <input type="hidden" id="lot_id" value="<?=$s['lot_id']?>"/>
+        <iframe style="display: none" 
+                onload="view_this('review',<?=$s['lot_id']?>)">
+                </iframe>
+        
+        <!-- REVIEWS -->      
+        <b>Reviews:</b></br>
+        <span id="review-<?=$s['lot_id']?>"></span>
+
+         <!-- RETAIL SEARCH LINK -->
+        <a href="#" 
+           role="button"
+           data-toggle="modal" 
+           data-target="#retail_modal" 
+           onclick="view_this('retail',<?=$s['lot_id']?>)">
+           <span class="glyphicon glyphicon-search"></span>
+           Find It
+           </a>        
+
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <span class="glyphicon glyphicon-heart-empty" 
+              aria-hidden="true"></span>
+              Trust a budtender?
+              
+              <br/> <!--BREAK-->
+
+        <span class="glyphicon glyphicon-gift" 
+              aria-hidden="true"></span>
+              Tip a budtender
+    </div>
+</div>
+
+
+<!-- HIDDEN -->
+<!-- RETAIL SEARCH POP-UP -->
+<div id="retail_modal" 
+     class="modal fade" 
+     role="dialog">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                <h4 class="modal-title">
+                    <span class="glyphicon glyphicon-barcode">
+                    </span>
+                    Find it, Buy it</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group"
+                    id="retail-<?=$s['lot_id']?>">
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
