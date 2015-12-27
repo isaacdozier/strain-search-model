@@ -1,11 +1,13 @@
+<?php
+$unit = ['gram','1/8th'];
+?>
+
 <p class="list-group-item">
    <a href="page/retailer.php">
       <?=$s['name']?> 
       </a>
 
    <?=' - $'.$s['g_price'];?>
-   <span class="tiny-text">
-   	     per gram
-         <?=' - updated: '.$s['pur_date'];?>
-         </span> 
+   per <?=$unit[$s['g_measure']];?>
+   <?=' - on: '.$s['pur_date'];?>
    </p>

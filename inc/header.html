@@ -26,7 +26,7 @@
 					      ) 
 					?>
 	        </ul>
-	      	<form action="<?=$_SERVER['PHP_SELF']?>" 
+	      	<form action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>" 
 	    		  autocomplete="off"
 	    		  class="navbar-form navbar-right" 
 	    		  role="search">
