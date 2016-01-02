@@ -60,7 +60,6 @@ else{//ERRORS
    echo$foo->error;}
 
 if($foo->processed AND empty($errors)==true) {
-	echo 'image renamed, resized<br/>';
 
 	# update img sql
 	$update_sql = "UPDATE lots
