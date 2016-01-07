@@ -2,6 +2,7 @@
 
 $tmp = "";
 
+//required to make a connection with the database
 require_once('../lib/config.php');
 
 //pull data

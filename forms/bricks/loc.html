@@ -4,12 +4,12 @@
 <div class="modal-content">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Rate Strain</h4>
+    <h4 class="modal-title">Location Price</h4>
   </div>
   <div class="modal-body">
     <form 
 	autocomplete="off"
-	action="forms/worker/push/rate.php"
+	action="forms/worker/push/loc.php"
 	method="post">
 
 		<input 
@@ -19,34 +19,29 @@
 				?$_REQUEST['v']
 				:$con->insert_id?>"/>
 
-		Good Rating<input 
+		Price per Gram 
+		<small>(not including local sales tax)</small>
+		<input 
 		type="number" 
 		class="form-control" 
-		name="rate"/>
+		name="gram_price"/>
 			
 			<br/>
 
-		Bad Rating<input 
-		type="number" 
-		value="<?=$s['strain_name']?>"
+		Retail Location<input 
+		type="text"
 		class="form-control" 
-		name="d_rate"/>
+		onkeyup="_f_s(this.value, 'retail')"
+		name="retailer"/>
+		<div id="retail_form_txt"></div>
 			
 			<br/>
-			
-		A Favorite?
-		<br />
-		Yes<input 
-		type="radio" 
-		value="1"
-		name="fav"/>
-		<br />
-		No<input 
-		type="radio" 
-		value="0"
-		checked
-		name="fav"/>
-		
+
+		Purchase Date<input 
+		type="date" 
+		class="form-control" 
+		name="purchase_date"/>
+
 			<br/>
 			<br/>
 

@@ -1,5 +1,10 @@
 <?php
-$unit = ['gram','1/8th'];
+
+$unit = ['gram','1/8th', //0
+		 'Quart Ounce',  //1
+		 'Half Ounce',   //2
+		 'Ounce',        //3
+		 'Joint',];      //4
 ?>
 
 <p class="list-group-item">
@@ -9,5 +14,13 @@ $unit = ['gram','1/8th'];
 
    <?=' - $'.$s['g_price'];?>
    per <?=$unit[$s['g_measure']];?>
-   <?=' - on: '.$s['pur_date'];?>
+   
+
+   <a href="#" 
+   title="<?=$s['pur_date']==='0000-00-00' 
+   		   ? 'Sorry, no date info.' 
+   		   : 'last purchased '.$s['pur_date'];?>">
+
+   		<span class="glyphicon glyphicon-exclamation-sign"></span>
+   		</a>
    </p>

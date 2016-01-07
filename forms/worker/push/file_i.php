@@ -47,7 +47,7 @@ if ($foo->uploaded) {
 	$foo->image_convert = 'gif';
 	$foo->image_x = 1000;
 	$foo->image_ratio_y = true;
-	$foo->Process('../../../img/');
+	$foo->Process('../../../img/lot/');
 
 	//SET ERRORS
 	$errors= array();
@@ -68,8 +68,7 @@ if($foo->processed AND empty($errors)==true) {
 
 		#insert data + clear tmp file
 		if($con->query($update_sql)) 
-	      {$foo->Clean();
-		   header('Location: '.__ROOT__);}
+	      {$foo->Clean();}
 
 }else{//ERRORS
  echo$foo->error;
