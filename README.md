@@ -6,4 +6,4 @@ to track data over time for a given strain.
 
 Each harvest is given a 16 digit unique LOT# as an identifier per tracking guidelines.
 
-See: http://biotrackthc.com/
+See http://biotrackthc.com/ (non-affiliated site) for more information about lot numbers
