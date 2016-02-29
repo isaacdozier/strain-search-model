@@ -1,0 +1,25 @@
+<div class="page-bg col-xs-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <!-- Strain Name -->
+          <a href="<?=$root
+                      .'l/'.str_replace(' ','-',$s['strain_name']).'/'
+                      .$s['lot_number'].'/'?>">
+            <?=$s['strain_name']?>
+            </a>
+        </div>
+        <div class="panel-body">
+            <!-- Rate Bar -->
+            <?php include('rate_bar.html');?>
+
+            <!-- Strain Image -->
+            <a href="<?=$root
+                      .'l/'.str_replace(' ','-',$s['strain_name']).'/'
+                      .$s['lot_number'].'/'?>">
+               <img alt="<?=$s['img_alt']?>" 
+                    class="img-responsive img-rounded" 
+                    src="http://localhost/img/lot/<?=$s['img']?>"/>
+               </a>
+        </div>
+    </div>
+</div>

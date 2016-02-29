@@ -1,0 +1,70 @@
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Rate Strain</h4>
+  </div>
+  <div class="modal-body">
+    <form 
+	autocomplete="off"
+	action="<?=$root?>forms/worker/push/rate.php"
+	method="post">
+
+		<input 
+		type="hidden"
+		name="lot_id"
+		value="<?=isset($_REQUEST['v'])
+				?$_REQUEST['v']
+				:''?>"/>
+
+		<input 
+		type="hidden"
+		name="last"
+		value="<?=__LAST__?>"/>
+
+		Good Rating<input 
+		type="number" 
+		class="form-control" 
+		name="rate"/>
+			
+			<br/>
+
+		Bad Rating<input 
+		type="number" 
+		value="<?=$s['strain_name']?>"
+		class="form-control" 
+		name="d_rate"/>
+			
+			<br/>
+			
+		A Favorite?
+		<br />
+		Yes<input 
+		type="radio" 
+		value="1"
+		name="fav"/>
+		<br />
+		No<input 
+		type="radio" 
+		value="0"
+		checked
+		name="fav"/>
+		
+			<br/>
+			<br/>
+
+		<input  
+		class="form-control" 
+		type="submit" 
+		value="Submit" />	
+		
+		
+	</form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
+</div>
+</div>

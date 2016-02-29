@@ -1,0 +1,69 @@
+<div class="page-header">
+	<nav class="navbar navbar-default">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="<?=$root?>">Skagit Marijuana</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	        <ul class="nav navbar-nav">
+		        <li><a href="<?=$root?>o/favorite/">Favorites</a></li>
+		       
+		        	<!-- Admin options -->
+		        	<?php 
+					include(
+						  $_SESSION['user']
+					      ?$_SESSION['u_type'].'/panel.html'
+					      :"user/cred.html"
+					      ) 
+					?>
+	        </ul>
+	      	<form action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>" 
+	    		  autocomplete="off"
+	    		  class="navbar-form navbar-right" 
+	    		  role="search">
+
+				  <div class="form-group">
+
+					<input type="text" 
+		    			   name="q"
+		    			   class="form-control"
+		    			   value="<?=isset($_REQUEST['q'])?$_REQUEST['q']:''?>" 
+		    			   placeholder="Search..." 
+		    			   onkeyup="s(this.value, 'hinter')">
+		    		
+			    		<input id="q_txt"
+			    			   type="hidden" 
+			    			   value="<?=isset($_REQUEST['q'])?$_REQUEST['q']:''?>"/>
+
+			    		<input id="q_type"
+			    			   type="hidden" 
+			    			   value="<?=isset($_REQUEST['type'])?$_REQUEST['type']:'keyword'?>"/>
+
+		    		<input type="submit"
+						   value="Search"
+					       class="btn btn-default"/>
+					
+				  </div>
+			</form>
+	    </div><!-- /.navbar-collapse -->
+	</nav>
+
+	<!-- Form Modal -->
+	<div id="form_modal" 
+    	 class="modal fade" 
+		 role="dialog">
+
+	 	<div id="form_content"></div>
+	 </div>
+
+	 <div id="hinter"></div>
+	
+</div>
